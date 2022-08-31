@@ -15,6 +15,11 @@ docker run -d -p 8888:8888 -v "$HOME/work/code/learn/plrom-design":/home/jovyan/
 | 2022-08-15 | 我想写一个维持好友关系的机器人 | Output |
 | | |
 
+## TODO
+
+- [ ] All content in plrom-design & trello -> English
+- [ ] Use GitHub Action to random
+
 ## References
 
 ...
