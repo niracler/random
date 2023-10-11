@@ -18,7 +18,7 @@ docker run -d -p 8888:8888 -v "$HOME/work/code/learn/plrom-design":/home/jovyan/
 | 2023-07 | Apple Game Porting Toolkit Research                | Knowledge  |
 | 2023-08 | The Legend of Zelda: Breath of the Wild - niracler | ACG        |
 | 2023-09 | The Legend of Zelda: Breath of the Wild - niracler | ACG        |
-| 2023-10 | Personal Information Flow Plan | 个人信息流规划    | Knowledge  |
+| 2023-10 | Personal Information Flow Plan - 个人信息流规划    | Knowledge  |
 
 <!-- TABLE_END -->
 
