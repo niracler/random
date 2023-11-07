@@ -5,7 +5,7 @@ worldbuilding...
 ## Install
 
 ```bash
-docker run -d -p 8888:8888 -v "$HOME/work/code/learn/plrom-design":/home/jovyan/work --name jupyterhub jupyter/datascience-notebook:6b49f3337709
+docker run -d -p 8888:8888 -v "$HOME/work/code/niracler/plrom-design":/home/jovyan/work --name jupyterhub jupyter/datascience-notebook:6b49f3337709
 ```
 
 ## Random List History
@@ -19,6 +19,7 @@ docker run -d -p 8888:8888 -v "$HOME/work/code/learn/plrom-design":/home/jovyan/
 | 2023-08 | The Legend of Zelda: Breath of the Wild - niracler | ACG        |
 | 2023-09 | The Legend of Zelda: Breath of the Wild - niracler | ACG        |
 | 2023-10 | Personal Information Flow Plan - 个人信息流规划    | Knowledge  |
+| 2023-11 | The Legend of Zelda: Breath of the Wild - niracler | ACG        |
 
 <!-- TABLE_END -->
 
