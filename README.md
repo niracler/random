@@ -24,6 +24,7 @@ docker run -d -p 8888:8888 -v "$PWD":/home/jovyan/work --restart always  --name 
 | 2024-01 | Take photos to document life - 记录生活需要有照片 - 一天拍 10 张选 1 张，并学一下 affinity photo 的后期 | #practice #elegant                   |
 | 2024-02 | Building an ACG Knowledge Base - 搭建 ACG 方面的知识库 - 给奈亚子予奇怪的知识                           | #research #portfolios #high_priority |
 | 2024-03 | Building an ACG Knowledge Base - 搭建 ACG 方面的知识库 - 给奈亚子予奇怪的知识                           | #research #portfolios #high_priority |
+| 2024-06 | Math - 数学基础 - 例如可以每天看一下 3Blue1Brown 的视频                                                 | #learn                               |
 
 <!-- TABLE_END -->
 
