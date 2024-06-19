@@ -65,8 +65,6 @@ print(history)
 
 import random, datetime, time
 
-user_input = input("确定要继续运行吗？(Y/n): ")    
-
 def rs():
     return random.choices(
         population=list(l.index),
