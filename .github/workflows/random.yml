@@ -1,0 +1,19 @@
+name: Random Dare
+
+# every month on the first day at 00:00
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  radom_dare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Random Dare
+        run: |
+          pip install -r requirements.txt
+          python3 random_dare.py
