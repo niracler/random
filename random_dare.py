@@ -9,7 +9,7 @@ from dateutil.relativedelta import relativedelta
 from trello import TrelloClient
 
 # Constants
-CHANNEL_ID = "-1001921875703"  # os.getenv('TELEGRAM_CHANNEL_ID')
+CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 BASE_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 READ_ME_PATH = 'README.md'
