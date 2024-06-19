@@ -21,4 +21,6 @@ jobs:
           TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
           TRELLO_API_SECRET: ${{ secrets.TRELLO_API_SECRET }}
           TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
         run: python3 random_dare.py

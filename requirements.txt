@@ -1,3 +1,4 @@
 py-trello
 Telethon
 tabulate
+pandas
