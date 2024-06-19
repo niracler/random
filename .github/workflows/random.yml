@@ -11,9 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@latest
+
+      - name: Install
+        run: pip install -r requirements.txt
 
       - name: Random Dare
-        run: |
-          pip install -r requirements.txt
-          python3 random_dare.py
+        env: 
+          TRELLO_API_KEY: ${{ secrets.TRELLO_API_KEY }}
+          TRELLO_API_SECRET: ${{ secrets.TRELLO_API_SECRET }}
+          TRELLO_TOKEN: ${{ secrets.TRELLO_TOKEN }}
+        run: python3 random_dare.py
