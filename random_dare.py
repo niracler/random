@@ -3,8 +3,8 @@ import os
 import trello
 
 trello_client = trello.TrelloClient(
-    api_key=os.getenv('TRELLO_API_KEY')
-    api_secret=os.getenv('TRELLO_API_SECRET')
+    api_key=os.getenv('TRELLO_API_KEY'),
+    api_secret=os.getenv('TRELLO_API_SECRET'),
     token=os.getenv('TRELLO_TOKEN')
 )
 
