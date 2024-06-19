@@ -31,7 +31,7 @@ def send_message_and_pin(text):
     message_data = {"chat_id": CHANNEL_ID, "text": text, "parse_mode": "HTML"}
     
     response = requests.post(send_message_url, data=message_data)
-    print(response.json())
+    # print(response.json())
     message_id = response.json()['result']['message_id']
     
     pin_message_url = f"{BASE_URL}/pinChatMessage"
