@@ -11,7 +11,7 @@ from dateutil.relativedelta import relativedelta
 # Constants
 GH_TOKEN = os.getenv('GH_TOKEN')
 USERNAME = "niracler"
-CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID', '-1001921875703')
+CHANNEL_ID = "-1001921875703" # os.getenv('TELEGRAM_CHANNEL_ID', '-1001921875703')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 BASE_URL = f"https://api.telegram.org/bot{BOT_TOKEN}"
 READ_ME_PATH = 'README.md'

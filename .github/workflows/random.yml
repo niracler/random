@@ -22,3 +22,15 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
         run: python3 rand.py
+
+      - name: Commit
+        env: 
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --local user.email "nyaruko@niracler.com"
+          git config --local user.name "nyaruko"
+          git add README.md table.csv
+          git commit -m "Random Dare $(date +'%Y-%m-%d')"
+          # git push through the token
+          git remote set-url origin "https://$GH_TOKEN@github.com/niracler/random.git"
+          git push origin main
