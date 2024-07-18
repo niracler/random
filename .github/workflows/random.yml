@@ -30,7 +30,6 @@ jobs:
           git config --local user.email "nyaruko@niracler.com"
           git config --local user.name "nyaruko"
           git add README.md table.csv
-          git commit -m "Random Dare $(date +'%Y-%m-%d')"
-          # git push through the token
+          git commit -m "docs: random dare $(date +'%Y-%m-%d')"
           git remote set-url origin "https://$GH_TOKEN@github.com/niracler/random.git"
           git push origin main
