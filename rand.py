@@ -9,7 +9,7 @@ import json
 from dateutil.relativedelta import relativedelta
 
 # Constants
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+GH_TOKEN = os.getenv('GH_TOKEN')
 USERNAME = "niracler"
 CHANNEL_ID = os.getenv('TELEGRAM_CHANNEL_ID', '-1001921875703')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -137,7 +137,7 @@ def fetch_github_project_items():
     """ % PROJECT_ID
 
     headers = {
-        'Authorization': f'Bearer {GITHUB_TOKEN}',
+        'Authorization': f'Bearer {GH_TOKEN}',
         'Content-Type': 'application/json'
     }
 
@@ -202,7 +202,7 @@ def select_task_and_notify(tasks_df):
 def update_task_status(selected_task):
     url = "https://api.github.com/graphql"
     headers = {
-        "Authorization": f"Bearer {GITHUB_TOKEN}",
+        "Authorization": f"Bearer {GH_TOKEN}",
         "Content-Type": "application/json"
     }
     payload = {
