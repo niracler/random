@@ -22,7 +22,6 @@ https://github.com/users/niracler/projects/1/views/1
 | Date    | Title                                                               | Tags            |
 |:--------|:--------------------------------------------------------------------|:----------------|
 | 2024-07 | [Typing practice](https://github.com/niracler/random/issues/6)      | dare life_habit |
-| 2024-07 | [Leetcode 40 Problems](https://github.com/niracler/random/issues/5) | practice        |
 
 <!-- TABLE_END -->
 
