@@ -19,9 +19,9 @@ https://github.com/users/niracler/projects/1/views/1
 
 <!-- TABLE_START -->
 
-| Date    | Title | Tags |
-| ------- | ----- | ---- |
-| 2024-07 | [Typing practice](https://github.com/niracler/random/issues/6) | dare, life_habit |
+| Date    | Title                                                             | Tags            |
+|:--------|:------------------------------------------------------------------|:----------------|
+| 2024-07 | [Typing practice](https://github.com/niracler/random/issues/6)    | dare life_habit |
 
 <!-- TABLE_END -->
 
