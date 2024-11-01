@@ -25,6 +25,8 @@ https://github.com/users/niracler/projects/1/views/1
 | 2024-08 | [Cyberpunk 2077](https://github.com/niracler/random/issues/2)                                   | game            |
 | 2024-09 | [Handwriting Practice](https://github.com/niracler/random/issues/14)                            | practice        |
 | 2024-10 | [In-Depth Study of Koa Source Code and Ecosystem](https://github.com/niracler/random/issues/23) | practice        |
+| 2024-11 | [Prompt Engineering](https://github.com/niracler/random/issues/7)                               | portfolios      |
+| 2024-11 | [Prompt Engineering](https://github.com/niracler/random/issues/7)                               | research        |
 
 <!-- TABLE_END -->
 
