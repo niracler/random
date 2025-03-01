@@ -29,6 +29,7 @@ https://github.com/users/niracler/projects/1/views/1
 | 2024-12 | [Building an AutoBangumi-like Service with Node.js](https://github.com/niracler/random/issues/20) | practice portfolios research |
 | 2025-01 | [Learning Rust](https://github.com/niracler/random/issues/11)                                     | practice                     |
 | 2025-02 | [ACG Stickers](https://github.com/niracler/random/issues/10)                                      | dare                         |
+| 2025-03 | [Monster Hunter Wilds Quick Start Plan](https://github.com/niracler/random/issues/34)             | game                         |
 
 <!-- TABLE_END -->
 
