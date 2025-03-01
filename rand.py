@@ -86,7 +86,7 @@ def fetch_github_project_items():
     query {
         node(id: "%s") {
             ... on ProjectV2 {
-                items(first: 20) {
+                items(first: 100) {
                     nodes {
                         id
                         fieldValues(first: 8) {
