@@ -6,7 +6,6 @@ import datetime
 import requests
 import pandas as pd
 import json
-from dateutil.relativedelta import relativedelta
 
 # Constants
 GH_TOKEN = os.getenv('GH_TOKEN')
@@ -170,8 +169,8 @@ def parse_project_items(data):
             random_item['id'] = item['id']
             random_item['title'] = content.get('title', "")
             text = content.get('body', "")
-            random_item['body'] = re.search(
-                r'\|\s*(.*?)\n\n', text, re.S).group(1).strip() if text else ""
+            match = re.search(r'\|\s*(.*?)\n\n', text, re.S) if text else None
+            random_item['body'] = match.group(1).strip() if match else ""
             labels = content.get('labels', {}).get('nodes', [])
             random_item['labels'] = [label['name'] for label in labels]
             random_item['url'] = content.get('url', "")

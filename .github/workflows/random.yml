@@ -17,7 +17,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Random Dare
-        env: 
+        env:
+          # GH_TOKEN needs repo + read:project + project scopes
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}

@@ -17,5 +17,6 @@ jobs:
 
       - name: Close rejected issues
         env:
+          # GH_TOKEN needs repo + read:project + project scopes
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: python3 close_rejected.py
