@@ -65,7 +65,7 @@ options, or add a new label to the whitelist.
 | In progress | `47fc9ee4`  | Currently being worked on. Also called "Doing". |
 | In review   | `df73e18b`  | Work done, pending verification.             |
 | Done        | `98236657`  | Completed.                                   |
-| Reject      | `7dbd231a`  | Rejected; `close_rejected.py` auto-closes these. |
+| Reject      | `7dbd231a`  | Rejected; `random_dare/close_rejected.py` auto-closes these. |
 
 **Synonym guidance:** if the user says "Doing", "做到一半",
 "in progress", or "正在做", map to `In progress`. If the user says
@@ -145,8 +145,8 @@ the title and a one-line summary.
 **What Claude infers from the input:**
 
 - `title` — bilingual, format `"EN | 中文"`. The ` | ` separator (with
-  surrounding spaces) is required — the existing `rand.py` in this repo
-  splits on it to get the English name for Telegram announcements.
+  surrounding spaces) is required — `random_dare/pick.py` splits on it
+  to get the English name for Telegram announcements.
 - `summary` — bilingual, same `"EN | 中文"` format, one sentence.
 - `labels` — pick 0-3 from the whitelist in §2 that fit the idea. If
   none fit cleanly, pick zero. **Never invent.**
@@ -428,23 +428,52 @@ Mode C or manually.
 
 ### Mode C (draft plan body)
 
-When the user explicitly asks to draft / plan, read `../../../prompt.md`
-(relative to this skill file) and use the structure in its bottom-half
-example as the canonical template. Fill content based on the user's
-idea, keeping these headers intact: `## Summary`, `## TODOList`,
-`### Step 1:` / `### Step 2:` / `### Step 3:`, `### Books & Resources`.
+When the user explicitly asks to draft / plan, use this template
+verbatim (replace `{...}` placeholders, keep section headers intact):
 
-Why reference `prompt.md` instead of inlining the template here: that
-file is the source of truth for body structure in this repo. If it
-changes during future `random-review` skill work, this skill's output
-should follow. If `prompt.md` is ever removed, the reference breaks
-loudly — that's the signal that the body template needs to be
-re-anchored somewhere else.
+```markdown
+# title
+{Title EN} | {Title 中文}
+
+## Summary
+{Summary EN} | {Summary 中文}
+
+## TODOList
+
+### Step 1: {Phase 1 name} (1-2 weeks)
+
+- [ ] **{Task topic}**:
+  - {Sub-step or focus area}
+  - {Sub-step or focus area}
+
+- [ ] **{Task topic}**:
+  - {Sub-step or focus area}
+
+### Step 2: {Phase 2 name} (1-2 weeks)
+
+- [ ] ...
+
+### Step 3: {Phase 3 name} (1-2 weeks)
+
+- [ ] ...
+
+### Books & Resources
+
+- [ ] [{Resource name}]({URL})
+- [ ] [{Resource name}]({URL})
+```
+
+Step count is typically 3. If the topic naturally splits into more or
+fewer phases, adjust — the headers `## Summary`, `## TODOList`, and
+`### Books & Resources` must stay; `### Step N:` is a flexible scaffold.
 
 ### Bilingual rules (both modes)
 
-- **Title** must use `"EN | 中文"` with space-pipe-space. `rand.py`
-  depends on this separator to extract the English name for Telegram.
+- **Title** must use `"EN | 中文"` with space-pipe-space.
+  `random_dare/pick.py` builds the Telegram message by concatenating
+  the title with extra context, then splits on the first `|` to recover
+  the English title. The separator must therefore live inside the
+  GitHub issue title — without it, the English-name extraction breaks.
 - **Summary** line should also be `"EN | 中文"`.
 - TODOList items and Books & Resources entries can be single-language
   (English is fine). Don't force bilingual everywhere — it makes the
