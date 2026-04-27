@@ -1,0 +1,26 @@
+{
+  "skill_name": "random-manage",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "create-mode-a-preview",
+      "prompt": "加一条 random：想用 Zig 语言写个小工具练练手，重点是学一下编译期元编程",
+      "expected_output": "A preview block shown to the user (NOT a real issue creation), containing: bilingual title in 'EN | 中文' format, bilingual one-sentence summary, inferred labels chosen only from the whitelist (practice/game/dare/research/portfolios/life_habit), Status=Backlog, Priority=(unset), Mode=A. The body should be the minimal two-section template (# title + ## Summary) with no TODOList. The agent must explicitly wait for user confirmation and must NOT run any GraphQL mutation yet.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "eval_name": "list-filtered-ready",
+      "prompt": "random 里 Ready 状态的有哪些？",
+      "expected_output": "A markdown table listing only items whose Status is 'Ready', with columns: # | Title | Status | Priority | Labels. Items in other statuses should be filtered out. This is a read-only operation — the agent should call the List GraphQL query from §3.2 of the skill, filter client-side, and present the table without requesting confirmation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "eval_name": "update-priority-with-preview",
+      "prompt": "把 Learning Rust 的优先级改成 P0",
+      "expected_output": "The agent should (1) run the List query to locate the item by title substring match 'Learning Rust', (2) if exactly one match, present a confirmation preview in the form '即将把 [#<n> Learning Rust | ...] Priority: <current> → P0, Confirm?', (3) NOT run the update mutation without the user saying 'yes'. If zero matches, the agent should report so and offer to list items. If multiple matches, it should list candidates. The item identification logic from §3.3 must be applied correctly to the projectItemId (PVTI_...), not the issue ID.",
+      "files": []
+    }
+  ]
+}
