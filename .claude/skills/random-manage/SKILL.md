@@ -470,8 +470,10 @@ fewer phases, adjust — the headers `## Summary`, `## TODOList`, and
 ### Bilingual rules (both modes)
 
 - **Title** must use `"EN | 中文"` with space-pipe-space.
-  `random_dare/pick.py` depends on this separator to extract the
-  English name for Telegram.
+  `random_dare/pick.py` builds the Telegram message by concatenating
+  the title with extra context, then splits on the first `|` to recover
+  the English title. The separator must therefore live inside the
+  GitHub issue title — without it, the English-name extraction breaks.
 - **Summary** line should also be `"EN | 中文"`.
 - TODOList items and Books & Resources entries can be single-language
   (English is fine). Don't force bilingual everywhere — it makes the

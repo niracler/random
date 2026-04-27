@@ -2,7 +2,7 @@
 
 The full project schema (all field/option IDs, label whitelist) lives in
 .claude/skills/random-manage/SKILL.md §2. Only the IDs that the Python
-scripts actually mutate are duplicated here.
+scripts actually use (read or mutate) are duplicated here.
 """
 
 PROJECT_ID = "PVT_kwHOAXsRh84Ak2d1"

@@ -22,6 +22,7 @@ jobs:
 
       - name: Close rejected issues
         env:
-          # GH_TOKEN needs repo + read:project + project scopes
+          # GH_TOKEN needs repo (closeIssue) + read:project (project query) scopes.
+          # No project write scope: this script does not mutate project fields.
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: uv run python -m random_dare.close_rejected
