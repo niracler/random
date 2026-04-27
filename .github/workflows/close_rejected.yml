@@ -12,11 +12,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install
-        run: pip install -r requirements.txt
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies
+        run: uv sync --frozen
 
       - name: Close rejected issues
         env:
           # GH_TOKEN needs repo + read:project + project scopes
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: python3 close_rejected.py
+        run: uv run python -m random_dare.close_rejected

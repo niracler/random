@@ -1,0 +1,32 @@
+[project]
+name = "random-dare"
+version = "0.1.0"
+description = "niracler's personal monthly random challenge automation."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas==3.0.2",
+    "requests==2.33.1",
+    "tabulate==0.10.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = [
+    "E501",  # line length is enforced by formatter where it makes sense
+]
+
+[tool.ruff.format]
+quote-style = "double"

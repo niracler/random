@@ -1,11 +1,14 @@
 """Close GitHub issues that have 'Reject' status on the project board as 'not planned'."""
 
-import os
 import json
+import os
+from typing import Any
+
 import requests
 
+from .constants import PROJECT_ID
+
 GH_TOKEN = os.getenv("GH_TOKEN")
-PROJECT_ID = "PVT_kwHOAXsRh84Ak2d1"
 GRAPHQL_URL = "https://api.github.com/graphql"
 HEADERS = {
     "Authorization": f"Bearer {GH_TOKEN}",
@@ -13,11 +16,11 @@ HEADERS = {
 }
 
 
-def fetch_project_items() -> list[dict]:
+def fetch_project_items() -> list[dict[str, Any]]:
     """Fetch all items from the project board with their status and issue info."""
     query = """
-    query {
-        node(id: "%s") {
+    query($projectId: ID!) {
+        node(id: $projectId) {
             ... on ProjectV2 {
                 items(first: 100) {
                     nodes {
@@ -47,16 +50,15 @@ def fetch_project_items() -> list[dict]:
             }
         }
     }
-    """ % PROJECT_ID
+    """
 
-    response = requests.post(
-        GRAPHQL_URL, headers=HEADERS, data=json.dumps({"query": query})
-    )
+    payload = {"query": query, "variables": {"projectId": PROJECT_ID}}
+    response = requests.post(GRAPHQL_URL, headers=HEADERS, data=json.dumps(payload))
     data = response.json()
     return data.get("data", {}).get("node", {}).get("items", {}).get("nodes", [])
 
 
-def get_rejected_issues(items: list[dict]) -> list[dict]:
+def get_rejected_issues(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Filter items with 'Reject' status that are still open."""
     rejected = []
     for item in items:
@@ -79,19 +81,18 @@ def get_rejected_issues(items: list[dict]) -> list[dict]:
 def close_issue_as_not_planned(issue_id: str) -> bool:
     """Close an issue with state_reason NOT_PLANNED via GraphQL."""
     mutation = """
-    mutation {
-        closeIssue(input: {issueId: "%s", stateReason: NOT_PLANNED}) {
+    mutation($issueId: ID!) {
+        closeIssue(input: {issueId: $issueId, stateReason: NOT_PLANNED}) {
             issue {
                 number
                 state
             }
         }
     }
-    """ % issue_id
+    """
 
-    response = requests.post(
-        GRAPHQL_URL, headers=HEADERS, data=json.dumps({"query": mutation})
-    )
+    payload = {"query": mutation, "variables": {"issueId": issue_id}}
+    response = requests.post(GRAPHQL_URL, headers=HEADERS, data=json.dumps(payload))
     result = response.json()
     return "errors" not in result
 

@@ -8,9 +8,9 @@ https://github.com/users/niracler/projects/1/views/1
 
 ## Random Rule
 
-1. **Review ready list monthly in 28th**: Update the list in the 28th of each month.z
+1. **Review ready list monthly in 28th**: Update the list around the 28th of each month.
 2. **Random per month**: I will randomly select a item from Ready on [this list](https://github.com/users/niracler/projects/1/views/1) through [the GitHub Action](https://github.com/niracler/random/actions/workflows/random.yml).
-3. **Limit 20 hours**: The time of each item should be less than 20 hours, so that it can be completed within a month.
+3. **Around 20 hours on average**: Each item should aim for ~20 hours; some larger items are fine as long as the average holds.
 4. **Measurable goal**: There should be a clear goal of "completion" of this event.
 5. **Accessible items**: It is best to be things and problems encountered in work and life.
 6. **Progress every week**: There should be a little progress every week. It can be a link to share related knowledge points or comments, or reading. Sync to [Telegram Channel](https://t.me/tomoko_channel)
