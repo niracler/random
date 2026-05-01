@@ -13,9 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # GH_TOKEN needs repo + read:project + project scopes; persists for the
-          # later git push step so we don't have to inject the token into the URL.
-          token: ${{ secrets.GH_TOKEN }}
+          # Checkout with the default GITHUB_TOKEN so this step never depends
+          # on GH_TOKEN being valid. GH_TOKEN is only used where it's actually
+          # needed (project GraphQL + final push).
+          persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
@@ -27,15 +28,18 @@ jobs:
 
       - name: Random Dare
         env:
+          # GH_TOKEN needs repo + read:project + project scopes.
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
         run: uv run python -m random_dare.pick
 
       - name: Commit
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --local user.email "i@niracler.com"
           git config --local user.name "niracler"
           git add README.md data/table.csv
           git commit -m "docs: random dare $(date +'%Y-%m-%d')"
-          git push origin main
+          git push "https://x-access-token:${GH_TOKEN}@github.com/niracler/random.git" HEAD:main
