@@ -31,6 +31,7 @@ https://github.com/users/niracler/projects/1/views/1
 | 2025-02 | [ACG Stickers](https://github.com/niracler/random/issues/10)                                      | dare                         |
 | 2025-03 | [Monster Hunter Wilds Quick Start Plan](https://github.com/niracler/random/issues/34)             | game                         |
 | 2026-05 | [Complete CS146S "The Modern Software Developer"](https://github.com/niracler/random/issues/38)   | learn                        |
+| 2026-06 | [Read "The Dream Machine"](https://github.com/niracler/random/issues/42)                          | learn                        |
 
 <!-- TABLE_END -->
 
