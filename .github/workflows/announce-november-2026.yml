@@ -1,0 +1,29 @@
+name: Announce the November 2026 pick
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  announce:
+    if: github.event.pull_request.merged && github.event.pull_request.number == 56 && github.run_attempt == 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post the pick to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          ANNOUNCEMENT: |-
+            11 月重新开始每月 Random，这次内定《有氧拳击 3》🥊
+            具体怎么练，接下来在 #55 里记。
+            https://github.com/niracler/random/issues/55
+            #random_todolist
+        shell: bash
+        run: |
+          curl --fail --silent --show-error \
+            --data-urlencode 'chat_id=@tomoko_channel' \
+            --data-urlencode "text=$ANNOUNCEMENT" \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" |
+            jq -er 'select(.ok == true) | .result.message_id | "https://t.me/tomoko_channel/\(.)"'
