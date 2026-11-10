@@ -39,7 +39,7 @@ def map_to(card: dict[str, Any]) -> dict[str, Any]:
     weight = {None: 10, "P2": 15, "P1": 20, "P0": 30}.get(priority, 10)
 
     return {
-        "title": card["title"] + " | " + card["body"],
+        "title": card["title"],
         "tags": card["labels"],
         "weight": weight,
         "short_url": card["url"],
@@ -60,8 +60,8 @@ def update_history(history_df: pd.DataFrame, task: pd.Series) -> pd.DataFrame:
     current_date = now.strftime("%Y-%m")
     english_title = task["title"].split("|")[0].strip()
     title = f"[{english_title}]({task['short_url']})"
-    new_row = {"Date": current_date, "Title": title, "Tags": task["tags"]}
-    history_df = pd.concat([history_df, pd.DataFrame(new_row)], ignore_index=True)
+    new_row = {"Date": current_date, "Title": title, "Tags": " ".join(task["tags"])}
+    history_df = pd.concat([history_df, pd.DataFrame([new_row])], ignore_index=True)
     history_df.to_csv(HISTORY_PATH, index=False)
     return history_df
 
