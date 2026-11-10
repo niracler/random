@@ -33,8 +33,7 @@ https://github.com/users/niracler/projects/1/views/1
 | 2026-05 | [Complete CS146S "The Modern Software Developer"](https://github.com/niracler/random/issues/38)   | learn                        |
 | 2026-06 | [Read "The Dream Machine"](https://github.com/niracler/random/issues/42)                          | learn                        |
 | 2026-07 | [Elden Ring](https://github.com/niracler/random/issues/54)                                        | game                         |
-| 2026-11 | [Fit Boxing 3](https://github.com/niracler/random/issues/55)                                      | game                         |
-| 2026-11 | [Fit Boxing 3](https://github.com/niracler/random/issues/55)                                      | practice                     |
+| 2026-11 | [Fit Boxing 3](https://github.com/niracler/random/issues/55)                                      | practice game                     |
 
 <!-- TABLE_END -->
 
